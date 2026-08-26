@@ -4,6 +4,7 @@ import { parseIcs, semesterRange } from "@/lib/parseIcs";
 import WeekCalendarGrid from "@/components/WeekCalendarGrid";
 import CourseList from "@/components/CourseList";
 import MonthCalendar from "@/components/MonthCalendar";
+import NotesPanel from "@/components/NotesPanel";
 import { assignments } from "@/lib/assignments";
 
 async function getEvents() {
@@ -60,6 +61,10 @@ export default async function Home() {
 
       <section className="mb-10">
         <CourseList events={events} />
+      </section>
+
+      <section className="mb-10">
+        <NotesPanel />
       </section>
     </main>
   );

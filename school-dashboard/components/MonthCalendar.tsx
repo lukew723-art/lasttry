@@ -127,20 +127,31 @@ export default function MonthCalendar({
                   key={i}
                   disabled={!day}
                   onClick={() => key && setSelected(isSelected ? null : key)}
-                  className={`min-h-[46px] sm:min-h-[56px] border-b border-r border-line/60 p-1 text-left align-top transition-colors ${
+                  className={`min-h-[54px] sm:min-h-[64px] border-b border-r border-line/60 p-1 text-left align-top transition-colors ${
                     day ? "hover:bg-page cursor-pointer" : "bg-page/40"
                   } ${isSelected ? "bg-accentSoft/40" : ""}`}
                 >
                   {day && (
                     <>
                       <span className="font-mono text-[10px] text-muted">{day}</span>
-                      <div className="mt-0.5 flex flex-wrap gap-0.5">
-                        {dayEvents.slice(0, 3).map((ev) => (
-                          <span
-                            key={ev.id}
-                            className={`w-1.5 h-1.5 rounded-full ${TYPE_STYLE[ev.type].bg.replace("/15", "")}`}
-                          />
-                        ))}
+                      <div className="mt-0.5 space-y-0.5">
+                        {dayEvents.slice(0, 2).map((ev) => {
+                          const style = TYPE_STYLE[ev.type];
+                          return (
+                            <div
+                              key={ev.id}
+                              className={`text-[7px] sm:text-[8px] leading-tight rounded px-0.5 py-px truncate font-medium ${style.bg} ${style.text}`}
+                              title={`${ev.course} — ${ev.title}`}
+                            >
+                              {ev.course}
+                            </div>
+                          );
+                        })}
+                        {dayEvents.length > 2 && (
+                          <div className="text-[7px] text-muted leading-none">
+                            +{dayEvents.length - 2}
+                          </div>
+                        )}
                       </div>
                     </>
                   )}
