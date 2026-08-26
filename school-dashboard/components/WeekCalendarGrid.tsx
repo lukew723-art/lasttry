@@ -28,7 +28,7 @@ export default function WeekCalendarGrid({ events }: { events: CourseEvent[] }) 
   const gridStart = Math.max(0, Math.min(...allStarts) - 30);
   const gridEnd = Math.min(24 * 60, Math.max(...allEnds) + 30);
   const totalMinutes = gridEnd - gridStart;
-  const pxPerMin = 1.1;
+  const pxPerMin = 0.85;
   const gridHeight = totalMinutes * pxPerMin;
 
   const hourMarks: number[] = [];
@@ -36,17 +36,17 @@ export default function WeekCalendarGrid({ events }: { events: CourseEvent[] }) 
 
   return (
     <div className="rounded-xl border border-line bg-white overflow-hidden">
-      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-line">
-        <h2 className="font-display text-xl">Weekly Schedule</h2>
-        <span className="font-mono text-[11px] text-muted uppercase tracking-widest">
-          A typical week
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 border-b border-line">
+        <h2 className="font-display text-base sm:text-lg font-bold">Schedule</h2>
+        <span className="font-mono text-[10px] text-muted uppercase tracking-widest">
+          Typical week
         </span>
       </div>
 
       <div className="overflow-x-auto">
-        <div className="flex min-w-[640px]">
+        <div className="flex min-w-[420px]">
           {/* Time axis */}
-          <div className="w-14 sm:w-16 shrink-0 relative" style={{ height: gridHeight }}>
+          <div className="w-11 sm:w-12 shrink-0 relative" style={{ height: gridHeight }}>
             {hourMarks.map((h) => (
               <div
                 key={h}
