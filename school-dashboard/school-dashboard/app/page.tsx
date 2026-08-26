@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { parseIcs, semesterRange } from "@/lib/parseIcs";
-import WeekCalendarGrid from "@/components/WeekCalendarGrid";
+import ScheduleBoard from "@/components/ScheduleBoard";
 import CourseList from "@/components/CourseList";
 import GradesPanel from "@/components/GradesPanel";
 
@@ -49,15 +49,23 @@ export default async function Home() {
       </header>
 
       <section className="mb-10">
-        <WeekCalendarGrid events={events} />
+        <ScheduleBoard events={events} />
       </section>
 
       <section className="mb-10">
         <CourseList events={events} />
       </section>
 
-      <section className="mb-10">
+      <section className="grid sm:grid-cols-2 gap-4 mb-10">
         <GradesPanel courseCodes={courseCodes} />
+
+        <div className="rounded-xl border border-dashed border-line p-5 flex flex-col items-start justify-center text-center sm:text-left">
+          <h2 className="font-display text-xl mb-1">Assignments &amp; Exams</h2>
+          <p className="text-sm text-muted">
+            Empty for now — send over your syllabi and this fills in with due
+            dates, exam windows, and a full-year timeline.
+          </p>
+        </div>
       </section>
     </main>
   );

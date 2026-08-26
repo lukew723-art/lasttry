@@ -13,9 +13,6 @@ const config: Config = {
         muted: "#5B6B60",
         accent: "#FF7A29",
         accentSoft: "#FFD9B3",
-        examRed: "#C6432B",
-        quizBlue: "#2B5C8A",
-        projectGreen: "#2F6B4F",
       },
       fontFamily: {
         display: ["var(--font-display)"],
