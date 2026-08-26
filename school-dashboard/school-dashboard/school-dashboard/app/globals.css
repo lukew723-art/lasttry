@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ffd9b3;
+  color: #12211c;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #ff7a29;
+  outline-offset: 2px;
+}
+
+/* Split-flap board character */
+.flap {
+  display: inline-block;
+  background: #0f1a16;
+  color: #ff7a29;
+  font-family: var(--font-mono);
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 rgba(255, 122, 41, 0.15);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .board-row {
+    animation: flap-in 0.4s ease-out both;
+  }
+}
+
+@keyframes flap-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

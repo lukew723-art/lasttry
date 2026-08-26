@@ -50,22 +50,11 @@ pull live from Canvas instead:
 The app checks for that env var automatically (see `app/page.tsx`) and
 re-fetches the feed hourly once it's set.
 
-## What's here now
-
-- **Schedule** (`/`) — a real time-grid weekly calendar, your course list,
-  and a manual grades panel.
-- **Assignments** (`/assignments`) — a month-view calendar of every exam,
-  quiz, project, and homework due date, pulled from your six course
-  syllabi. This is static data, not a live Canvas sync — Canvas's calendar
-  feed only exposes class meeting times, not assignment due dates. If a
-  professor changes a deadline mid-semester, it won't update here
-  automatically.
-- **Syllabi** (`/syllabi`) — every syllabus file, one click to open.
-
 ## What's next
 
+- Send over your syllabi (as text, PDF, or however's easiest) — assignment
+  due dates, exam dates, and a full-semester timeline will get built out
+  from those.
 - Grades are entered manually in the Grades panel for now (saved in your
   browser) since Canvas doesn't expose grades without a personal access
   token, which your school has disabled for students.
-- If any due date on the Assignments calendar turns out to be wrong or
-  changes, just tell Claude and it'll get corrected in `lib/assignments.ts`.
